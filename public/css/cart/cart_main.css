@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+}
+
+/*顶部栏*/
+.top_bar {
+    position: relative;
+    height: 50px;
+    float: left;
+    left: 10%;
+    top:10px;
+}
+
+.top_bar > div {
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.top_bar > input {
+    float: left;
+}
+
+.top_bar > span {
+    float: left;
+}
+
+.top_bar > p{
+    width: 100px;
+    float: left;
+}
+
+#goods_item {
+    width: 342px;
+    text-align: center;
+}
+
+#goods_info {
+    width: 252px;
+}
+
+#goods_unit_price {
+    width: 130px;
+}
+
+#goods_amount {
+    width: 120px;
+}
+
+#goods_price {
+    width: 140px;
+}
+
+#goods_action {
+    width: 149px;
+}
