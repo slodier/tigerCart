@@ -6,21 +6,39 @@
     <script type="text/javascript" src="./public/lib/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="./public/css/cart/cart_main.css">
     <link rel="stylesheet" href="./public/css/cart/cart_filter_bar.css">
+    <link rel="stylesheet" href="./public/css/cart/ship-item.css">
 </head>
 <body>
     <div class="cart-filter-bar">
         <ul class="switch-cart">
-            <li class="btn-switch-cart">
+            <li class="btn-switch-cart" id="current-0">
                 <em>全部商品</em>
                 <span>6</span>
                 <span class="pipe"></span>
             </li>
-            <li></li>
-            <li></li>
+            <li class="btn-switch-cart" id="current-1">
+                <em>降价商品</em>
+                <span>0</span>
+                <span class="pipe"></span>
+            </li>
+            <li class="btn-switch-cart" id="current-2">
+                <em>库存紧张</em>
+                <span>0</span>
+            </li>
         </ul>
+        <div class="cart_sum">
+            <span class="pay-text"> 已选商品&nbsp;&nbsp;(不含运费)</span>
+            <strong>&nbsp;
+                <span class="total-symbol">0.00</span>
+            </strong>
+            <button id="small-submit" disabled="disabled">结&nbsp;算</button>
+        </div>
+        <div class="wrap-line">
+            <div class="floater" style="width: 10.6%; height: 2px;left: -1px;"></div>
+        </div>
     </div>
     <div class="top_bar">
-        <div><input type="checkbox">全选</div>
+        <div><input type="checkbox">&nbsp;&nbsp;全选</div>
         <p id="goods_item">商品信息</p>
         <p id="goods_info">&nbsp;</p>
         <p id="goods_unit_price">单价</p>
@@ -28,7 +46,61 @@
         <p id="goods_price">金额</p>
         <p id="goods_action">操作</p>
     </div>
+    <br/>
 
+    <div id="order-list" style="height: auto">
+        <!--<div id="good_id">-->
+            <!--<div class="itemHead-shop-clearfix" id="0">-->
+                <!--<div class="shop-info">-->
+                    <!--<input type="checkbox" name="orders[]">-->
+                    <!--<img src="public/res/market.png">-->
+                    <!--<span>店铺:&nbsp;</span>-->
+                    <!--<span id="shop-name">天猫超市</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="order-content">-->
+                <!--<div class="item-list">-->
+                    <!--<div class="item-holder">-->
+                        <!--<ul class="item-content">-->
+                            <!--<li class="td-chk">-->
+                                <!--<input class="checkBoxItem" type="checkbox">-->
+                            <!--</li>-->
+                            <!--<li class="td-item">-->
+                                <!--<img src="./public/res/timg.jpeg">-->
+                                <!--<div class="item_info">-->
+                                    <!--<a class="item-basic-info">【天猫超市】华味亨铁山楂300g/袋 山楂 卷山楂片 山楂干蜜饯零食</a>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="td-info"></li>-->
+                            <!--<li class="td-price">-->
+                                <!--<div class="price_line" tabindex="0">-->
+                                    <!--<em class="price_now">￥7.90</em>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="td-amount">-->
+                                <!--<div class="item-amount">-->
+                                    <!--<button id="amount-minus">-</button>-->
+                                    <!--<input type="text" class="text-amount" value="2">-->
+                                    <!--<button id="amount-plus">+</button>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="td-sum">-->
+                                <!--<div class="td-inner">-->
+                                    <!--<em class="item-sum-number">¥15.80</em>-->
+                                    <!--<div class="weight">(0.6kg)</div>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="td-op">-->
+                                <!--<button class="delete-item">删除</button>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
 
+    <script type="text/javascript" src="./javaScript/filterBar.js"></script>
+    <script type="text/javascript" src="./javaScript/shipItemList.js"></script>
 </body>
 </html>

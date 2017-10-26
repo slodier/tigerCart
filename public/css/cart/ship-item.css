@@ -1,0 +1,140 @@
+#order-list {
+    position: relative;
+    left: 9.5%;
+    float: left;
+    width: 80%;
+}
+
+/* 去除点击后的篮框 */
+button, input {
+    outline: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+.shop-info {
+    width: 90%;
+    height: 38px;
+    font-size: 12px;
+}
+
+/* 商品内容 */
+.order-content {
+    width: 100%;
+    border:solid 1px #e6e6e6;
+
+}
+
+.item-content {
+    list-style: none;
+    height: 119px;
+    margin-top: 5px;
+}
+
+.item-content > li {
+    margin-top: 20px;
+    float: left;
+    font-size: 12px;
+}
+
+/* checkbox */
+.td-chk {
+    position: relative;
+    margin-left: -3%;
+}
+
+/* 商品图片和标题 */
+.td-item {
+    width: 33%;
+    height: 84%;
+    float: left;
+}
+
+/* 商品图标 */
+.td-item > img {
+    width: 80px;
+    height: 80px;
+}
+
+/* 商品标题 */
+.item_info {
+    float: right;
+    width: 69%;
+    height: 40px;
+}
+
+/* 商品信息 */
+.td-info {
+    width: 18%;
+    height: 84%;
+    padding-right: 40px;
+}
+
+/* 商品单价 */
+.td-price {
+    width: 8%;
+    height: 84%;
+}
+
+/* 商品数量 */
+.td-amount {
+    width: 12%;
+    height: 84%;
+}
+
+.item-amount {
+    width: 80%;
+    height: 21%;
+}
+
+.amount-minus {
+    width: 22%;
+    height: 100%;
+    background: #ffffff;
+    border: solid 0.1px #e6e6e6;
+}
+
+.text-amount {
+    width: 40%;
+    height: 76%;
+    text-align: center;
+}
+
+.amount-plus {
+    float: right;
+    margin-top: 1px;
+    width: 22%;
+    height: 100%;
+    text-align: center;
+    background: #ffffff;
+    border:0.1px solid #e6e6e6;
+}
+
+/* 金额 */
+.td-sum {
+    width: 12%;
+    height: 84%;
+}
+
+.td-inner {
+    width: 100%;
+    height: 45%;
+    color: #c7254e;
+
+}
+
+/* 操作-删除 */
+.td-op {
+    width: 12.5%;
+    height: 84%;
+}
+
+.delete-item {
+    width: 100%;
+    height: 20%;
+    background: #fff;
+    cursor: pointer;
+    border: solid 0.1px #e6e6e6;
+}

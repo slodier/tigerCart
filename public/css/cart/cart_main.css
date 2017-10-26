@@ -5,10 +5,12 @@
 /*顶部栏*/
 .top_bar {
     position: relative;
+    left: 9.5%;
+    width: 83%;
     height: 50px;
     float: left;
-    left: 10%;
-    top:10px;
+    line-height: 50px;
+    font-size: 12px;
 }
 
 .top_bar > div {
@@ -31,26 +33,31 @@
 }
 
 #goods_item {
-    width: 342px;
+    width: 23.7%;
     text-align: center;
+    padding-left: 6.4%;
+    text-align: left;
 }
 
 #goods_info {
-    width: 252px;
+    width: 17.5%;
+    padding-right: 40px;
 }
 
 #goods_unit_price {
-    width: 130px;
+    width: 9%;
+    padding-right: 10px;
 }
 
 #goods_amount {
-    width: 120px;
+    width: 8.3%;
 }
 
 #goods_price {
-    width: 140px;
+    width: 9.7%;
 }
 
 #goods_action {
-    width: 149px;
+    width: 10%;
+    padding-left: 50px;
 }
