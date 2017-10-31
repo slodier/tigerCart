@@ -1,8 +1,8 @@
 .cart-filter-bar {
     position: relative;
-    width: 88.5%;
+    width: 84%;
     height: 35px;
-    left: 5%;
+    left: 7.5%;
 }
 
 .switch-cart {
@@ -21,11 +21,11 @@
 
 .btn-switch-cart > span {
     font-size: 12px;
-    color: #c7254e;
+    color: #ff4400;
 }
 
 #current-0 {
-    color: #c7254e;
+    color: #ff4400;
 }
 
 .pipe {
@@ -33,7 +33,7 @@
     float: right;
     width: 1px;
     height: 12px;
-    background: #c7254e;
+    background: #ff4400;
     top:5px;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .total-symbol {
-    color: #c7254e;
+    color: #ff4400;
     font-size: 12px;
 }
 
@@ -79,9 +79,9 @@
 .wrap-line {
     position: relative;
     clear: both;
-    width: 92%;
+    width: 96%;
     height: 2px;
-    left: 3.5%;
+    left: 2%;
     background: #e6e6e6;
 }
 

@@ -7,8 +7,72 @@
     <link rel="stylesheet" href="./public/css/cart/cart_main.css">
     <link rel="stylesheet" href="./public/css/cart/cart_filter_bar.css">
     <link rel="stylesheet" href="./public/css/cart/ship-item.css">
+    <link rel="stylesheet" href="./public/css/cart/cart_head.css">
 </head>
 <body>
+    <div class="site-nav">
+        <div class="site-nav-bd">
+            <ul class="site-nav-bd-l">
+                <li class="site-nav-menu">脆饼</li>
+                <li class="site-nav-tmsg">
+                    <span>消息</span>
+                    <span class="site-nav-tmsg-num">1</span>
+                </li>
+                <li class="site-nav-mobile">手机逛淘宝</li>
+            </ul>
+            <ul class="site-nav-bd-r">
+                <li class="site-nav-item">
+                    <button id="site-nav-home">淘宝网首页</button>
+                </li>
+                <li class="site-nav-item">
+                    <button id="site-nav-myTaoBao">我的淘宝</button>
+                </li>
+                <li class="site-nav-item">
+                    <button id="site-nav-cart">购物车</button>
+                    <span class="site-nav-cart-num">9</span>
+                </li>
+                <li class="site-nav-item">
+                    <button id="site-nav-favor">收藏夹</button>
+                </li>
+                <li class="site-nav-item">
+                    <button id="site-nav-catalog">商品分类</button>
+                </li>
+                <li class="site-nav-item">
+                    <button id="site-nav-seller">卖家中心</button>
+                </li>
+                <li class="site-nav-item">
+                    <button id="site-nav-service">联系客服</button>
+                </li>
+                <li class="site-nav-item">
+                    <button id="site-nav-sitemap">网站导航</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="J_Header">
+        <img src="./public/res/logo.jpg" class="logo">
+        <div class="search">
+            <div class="search-triggers">
+              <ul class="switch-nav">
+                  <li class="switch-nav-item">
+                      <button>宝贝</button>
+                  </li>
+                  <li class="switch-nav-item">
+                      <button>天猫</button>
+                  </li>
+                  <li class="switch-nav-item">
+                      <button>店铺</button>
+                  </li>
+              </ul>
+            </div>
+            <div class="search-field">
+                <input type="text" class="searct_text" placeholder="&nbsp;&nbsp;🔍">
+            </div>
+            <div class="search-btn">
+                <button id="search-btn">搜&nbsp;索</button>
+            </div>
+        </div>
+    </div>
     <div class="cart-filter-bar">
         <ul class="switch-cart">
             <li class="btn-switch-cart" id="current-0">
@@ -34,7 +98,7 @@
             <button id="small-submit" disabled="disabled">结&nbsp;算</button>
         </div>
         <div class="wrap-line">
-            <div class="floater" style="width: 10.6%; height: 2px;left: -1px;"></div>
+            <div class="floater" style="width: 9.4%; height: 2px;left: -1px;"></div>
         </div>
     </div>
     <div class="top_bar">
@@ -46,61 +110,10 @@
         <p id="goods_price">金额</p>
         <p id="goods_action">操作</p>
     </div>
-    <br/>
-
     <div id="order-list" style="height: auto">
-        <!--<div id="good_id">-->
-            <!--<div class="itemHead-shop-clearfix" id="0">-->
-                <!--<div class="shop-info">-->
-                    <!--<input type="checkbox" name="orders[]">-->
-                    <!--<img src="public/res/market.png">-->
-                    <!--<span>店铺:&nbsp;</span>-->
-                    <!--<span id="shop-name">天猫超市</span>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="order-content">-->
-                <!--<div class="item-list">-->
-                    <!--<div class="item-holder">-->
-                        <!--<ul class="item-content">-->
-                            <!--<li class="td-chk">-->
-                                <!--<input class="checkBoxItem" type="checkbox">-->
-                            <!--</li>-->
-                            <!--<li class="td-item">-->
-                                <!--<img src="./public/res/timg.jpeg">-->
-                                <!--<div class="item_info">-->
-                                    <!--<a class="item-basic-info">【天猫超市】华味亨铁山楂300g/袋 山楂 卷山楂片 山楂干蜜饯零食</a>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="td-info"></li>-->
-                            <!--<li class="td-price">-->
-                                <!--<div class="price_line" tabindex="0">-->
-                                    <!--<em class="price_now">￥7.90</em>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="td-amount">-->
-                                <!--<div class="item-amount">-->
-                                    <!--<button id="amount-minus">-</button>-->
-                                    <!--<input type="text" class="text-amount" value="2">-->
-                                    <!--<button id="amount-plus">+</button>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="td-sum">-->
-                                <!--<div class="td-inner">-->
-                                    <!--<em class="item-sum-number">¥15.80</em>-->
-                                    <!--<div class="weight">(0.6kg)</div>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="td-op">-->
-                                <!--<button class="delete-item">删除</button>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
-
     <script type="text/javascript" src="./javaScript/filterBar.js"></script>
-    <script type="text/javascript" src="./javaScript/shipItemList.js"></script>
+    <script type="text/javascript" src="javaScript/shopItemList.js"></script>
+    <script type="text/javascript" src="./javaScript/cartHeadBar.js"></script>
 </body>
 </html>

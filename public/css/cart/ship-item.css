@@ -42,11 +42,12 @@ a {
 /* checkbox */
 .td-chk {
     position: relative;
-    margin-left: -3%;
+    margin-left: 10px;
 }
 
 /* 商品图片和标题 */
 .td-item {
+    padding-left: 10px;
     width: 33%;
     height: 84%;
     float: left;
@@ -76,6 +77,15 @@ a {
 .td-price {
     width: 8%;
     height: 84%;
+}
+
+.price-line {
+    width: 90%;
+    outline: none;
+}
+
+.price-now {
+    font-weight: 900;
 }
 
 /* 商品数量 */
@@ -116,18 +126,18 @@ a {
 .td-sum {
     width: 12%;
     height: 84%;
+    font-weight: 900;
 }
 
 .td-inner {
     width: 100%;
     height: 45%;
-    color: #c7254e;
-
+    color: #ff4400;
 }
 
 /* 操作-删除 */
 .td-op {
-    width: 12.5%;
+    width: 10%;
     height: 84%;
 }
 
@@ -137,4 +147,11 @@ a {
     background: #fff;
     cursor: pointer;
     border: solid 0.1px #e6e6e6;
+}
+
+/* 多个商品之间有一条分割线 */
+.item-separate-line {
+    width: 100%;
+    height: 1px;
+    background: #e6e6e6;
 }

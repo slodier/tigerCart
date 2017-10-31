@@ -1,0 +1,166 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+/* 总的 div 元素 */
+.site-nav {
+    position: relative;
+    padding-top:10px;
+    width: 100%;
+    height:36px;
+    font-size: 12px;
+}
+
+.site-nav-bd {
+    position: relative;
+    float: left;
+    left: 9%;
+    width: 82.5%;
+    height: 35px;
+}
+
+/* 姓名-消息-手机逛淘宝 */
+.site-nav-bd-l {
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.site-nav-menu {
+    float: left;
+    list-style: none;
+    width: 37%;
+    height:100%;
+    cursor: pointer;
+}
+
+.site-nav-tmsg {
+    float: left;
+    list-style: none;
+    width: 30.5%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.site-nav-tmsg-num {
+    color: #ff4400;
+    font-weight: 900;
+}
+
+.site-nav-mobile {
+    float: left;
+    list-style: none;
+    width: 32%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* 后面的一排元素 */
+.site-nav-bd-r {
+    float: right;
+    width: 56%;
+    height: 100%;
+}
+
+/* 统一定义 */
+.site-nav-item {
+    float: left;
+    list-style: none;
+    width: 12.5%;
+    height: 100%;
+}
+
+/* 按钮去边框 + 背景白色 */
+.site-nav-item > button {
+    border: 0;
+    background: #ffffff;
+    cursor: pointer;
+
+}
+
+.site-nav-cart-num {
+    color: #ff4400;
+    font-weight: 900;
+}
+
+/* logo 和 搜索框 */
+.J_Header {
+    position: relative;
+    left: 9%;
+    width: 80%;
+    height:95px;
+}
+
+.logo {
+    width: 181px;
+    height: 90px;
+}
+
+.search {
+    position: relative;
+    float: right;
+    top:20px;
+    width: 515px;
+    height: 35px;
+    border: solid 3px #ff4400;
+}
+
+/* 鼠标移动下拉显示天猫和店铺 */
+.search-triggers {
+    float: left;
+    width: 76px;
+    height: 100%;
+}
+
+.switch-nav {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.switch-nav-item {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    font-size: 12px;
+}
+
+.switch-nav-item > button{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #e6e6e6;
+    cursor: pointer;
+}
+
+/* 搜索框右侧内容 */
+.search-field {
+    float: left;
+    width: 346px;
+    height: 100%;
+}
+
+.search-field input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    font-size: 18px;
+}
+
+/* 搜索按钮 */
+.search-btn {
+    float: right;
+    width: 90px;
+    height: 35px;
+}
+
+.search-btn > button {
+    width: 100%;
+    height:100%;
+    font-size: 20px;
+    background: #ff4400;
+    color: #ffffff;
+    border: 0;
+}
