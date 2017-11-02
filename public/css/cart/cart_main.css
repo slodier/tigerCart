@@ -7,6 +7,7 @@
     position: relative;
     left: 9.5%;
     width: 83%;
+    min-width: 1050px;
     height: 50px;
     float: left;
     line-height: 50px;

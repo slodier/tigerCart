@@ -3,6 +3,7 @@
     left: 9.5%;
     float: left;
     width: 80%;
+    min-width: 1050px;
 }
 
 /* 去除点击后的篮框 */
