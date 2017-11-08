@@ -1,8 +1,3 @@
-*{
-    padding:0;
-    margin:0;
-}
-
 /* 总的 div 元素 */
 .site-nav {
     position: relative;
@@ -104,8 +99,8 @@
 .search {
     position: relative;
     float: right;
-    top:20px;
     width: 515px;
+    top:20px;
     height: 35px;
     border: solid 3px #ff4400;
 }
@@ -134,9 +129,13 @@
 .switch-nav-item > button{
     width: 100%;
     height: 100%;
-    border: 0;
+    border-radius: 0px;
     background: #e6e6e6;
     cursor: pointer;
+}
+
+.switch_nav_hide > button {
+    background: #ffffff;
 }
 
 /* 搜索框右侧内容 */

@@ -7,65 +7,55 @@ var mysql_pool = require('./server/mysql_pool');
 app.listen(9000);
 
 app.get('/selectCart', function (req, res) {
-    /*
-     var sql = 'select t_shop.id as shop_id,' +
-         ' t_shop.name as shop_name, ' +
-         't_shop.icon as shop_icon, ' +
-         't_cart.id as goods_id, ' +
-         't_cart.title as goods_title, ' +
-         't_cart.icon as goods_icon, ' +
-         't_cart.price, t_cart.amount, t_cart.weight ' +
-         'from t_shop, t_cart where t_shop.id = t_cart.shop_id group by t_cart.shop_id';
-     */
 
-    var sql = 'select shop_id, group_concat(id) from t_cart group by shop_id';
+    var sql = "select shop_id, t_shop.name as shop_name, group_concat(t_cart.id, '-', title, '-', t_cart.icon, '-', price, '-', amount, '-', weight separator ';') from  t_cart, t_shop  where t_cart.shop_id = t_shop.id group by shop_id";
 
-     mysql_pool.query(sql, null, function (err, result) {
-         if (err) {
-             res.writeHead(404, {'content-Type':'text/html; charset=utf8'});
-             res.end('err' + err);
-             console.log(err);
-         }
-         else {
-             res.writeHead(200, {'content-Type':'text/html; charset=utf8'});
-             res.end(JSON.stringify(result));
-
-             //setData(result);
-
-             console.log(result[0]['group_concat(id)']);
-         }
-     });
+    mysql_pool.query(sql, null, function (err, data) {
+        if(err) {
+            console.log(err)
+            res.writeHead(404, {
+                'Content-Type' : 'text/html;charset=utf-8',
+                'Access-Control-Allow-Origin':'*'
+            });
+            res.end(err);
+        } else{
+            res.writeHead(200, {
+                'Content-Type' : 'text/html;charset=utf-8',
+                'Access-Control-Allow-Origin':'*'
+            });
+            res.end(getList(data));
+        }
+    })
 });
 
-// 将请求的数据,重新组织
-function setData(data) {
-    var dict = [];
-    for (var i = 0; i < data.length; i++){
-        for (var j = 1; j < data.length; j++){
+// 编排数组
+function getList(data) {
+    var array = [];
+    for (var i = 0 ; i < data.length; i++){
+        var shop_id = data[i]['shop_id'];
+        var shop_name = data[i]['shop_name'];
+        var total_text = data[i]["group_concat(t_cart.id, '-', title, '-', t_cart.icon, '-', price, '-', amount, '-', weight separator ';')"];
+        var goods = total_text.split(';');    // 根据 ; 分割商品数组
+        var json = {
+            'shop-id':'shop-' + shop_id,
+            'shop-name':shop_name,
+            'list':[]
+        };
 
-            if (data[i]['shop_id'] == data[j]['shop_id']){
-                console.log('ss');
-            }
-        }
-    }
-    return JSON.stringify(dict);
-}
-
-/*
-
-                var item_head = {
-                "shop-id":item['shop_id'],
-                "shop-name":item['shop_name'],
-                "list":[]
+        for (var j = 0; j < goods.length; j++){
+            var item_text = goods[j].toString();
+            var item = item_text.split('-');    // 根据 - 分割商品字段数组
+            var dict = {
+                'id':'good-' + item[0],
+                'title':item[1],
+                'icon':item[2],
+                'price':item[3],
+                'amount':item[4],
+                'weight':item[5]
             };
-
-            var last_item = {
-                "id":item['goods_id'],
-                "pic": item['goods_icon'],
-                "title": item['goods_title'],
-                "price": item['price'],
-                "amount": item['amount'],
-                "weight": item['weight']
-            }
-
- */
+            json['list'].push(JSON.stringify(dict));    // 将 js 对象转为 json 对象,加进 list 数组中
+        }
+        array.push(json);
+    }
+    return JSON.stringify(array);
+}

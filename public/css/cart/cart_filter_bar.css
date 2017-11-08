@@ -5,6 +5,7 @@
     height: 35px;
     left: 7.5%;
     z-index: 1;
+    margin-top:20px;
 }
 
 .switch-cart {
@@ -40,7 +41,6 @@
 }
 
 .pay-text {
-
     font-size: 12px;
     width: 120px;
     height: 14px;
@@ -52,7 +52,7 @@
     float: right;
     height: 25px;
     line-height: 25px;
-    width: 19%;
+    width: 21%;
 }
 
 .cart_sum > span {
@@ -62,6 +62,7 @@
 .total-symbol {
     color: #ff4400;
     font-size: 12px;
+    text-align: left;
 }
 
 #small-submit {

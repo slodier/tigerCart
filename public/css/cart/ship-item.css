@@ -156,3 +156,14 @@ a {
     height: 1px;
     background: #e6e6e6;
 }
+
+/* 鼠标悬停显示图片大图 */
+.good_big_img {
+    position: absolute;
+    z-index: 3;
+}
+
+.good_big_img > img {
+    width: 200px;
+    height: 200px;
+}

@@ -1,22 +1,11 @@
 $(function () {
 
-    getData(array1());
-    getData(array2());
-
-    hoverEvent();
+    cartData();
 
     $('#order-list > div').css('padding-top', '20px');
 
-    $('.price_now').wrap('<b></b>')
+    listenTotal();
 });
-
-// 请求数据
-function getData(array) {
-
-    layoutUI(array);
-
-    setData(array);
-}
 
 // 设置元素的值
 function setData(array) {
@@ -28,7 +17,9 @@ function setData(array) {
     var list = array['list'];
     for (var i = 0; i < list.length; i++){
 
-        var goods_id = list[i]['id'];
+        temp = JSON.parse(list[i]);
+
+        var goods_id = temp['id'];
 
         $($item_holder[i]).attr('id', goods_id);    // 给商品 div 元素 添加 id 为商品 id
 
@@ -36,12 +27,11 @@ function setData(array) {
         var $price = $('#' + goods_id + ' em[class=price-now]');   // 设置单价
         var $amount = $('#' + goods_id + ' input[class=text-amount]');    // 设置数量
 
+        var price_num = temp['price'];    // 单价
+        var amount_num = temp['amount'];    // 数量
+        var weight_num = temp['weight'];
 
-        var price_num = list[i]['price'];    // 单价
-        var amount_num = list[i]['amount'];    // 数量
-        var weight_num = list[i]['weight'];
-
-        $title.text(list[i]['title']);
+        $title.text(temp['title']);
         $price.text("¥" + price_num);
         $amount.val(amount_num);
 
@@ -65,11 +55,42 @@ function calMoneyAndWeight(price, amount, weight, id) {
     $('#' + id + ' div[class=weight]').text(weight_text);    // 商品重量 = 单个重量 * 数量
 }
 
+// 监听总金额变化,大于 0 able ,反之 enable
+function listenTotal() {
+    $('.total-symbol').on('DOMNodeInserted', function () {
+        if($(this).text() == '¥ 0.0'){
+            disableSettle();
+        }else {
+            enableSettle();
+        }
+    })
+}
+
 /********  鼠标悬停事件  ***********/
 function hoverEvent() {
     amountHover('.amount-minus');
     amountHover('.amount-plus');
     amountHover('.delete-item');
+
+    goodBigImg();
+}
+
+// 鼠标悬停商品图片,鼠标右侧显示大图
+function goodBigImg() {
+
+    $('.td-item img').hover(function (e) {
+       var src = $(this).attr('src');    // 获取商品图片的 src
+       var pos = $(this).position();     // 获取图片的位置
+       var bigImg = '<div class="good_big_img"><img src=' + src + '></div>';
+       $($(this).parent()).append(bigImg);
+       $('.good_big_img').css({
+           'top':(pos.top - 30) + 'px',
+           'left':(pos.left + 90)  +'px'
+       });
+
+    }, function () {
+        $('.good_big_img'). remove();
+    });
 }
 
 // 改变边框、字体颜色
@@ -100,6 +121,23 @@ function dealAmount(selector, id, price_num, weight, isReduce) {
         var $amount = $('#' + id + ' input[class=text-amount]');    // 获取商品数量 input 标签
         var amount_num = parseInt($amount.val());
         isReduce ? (amount_num--) : (amount_num++);     // 减号-商品数量 --; 加号-商品数量 ++
+
+        if (amount_num < 1){
+            return;
+        }
+
+        // 只有商铺全选按钮或者商品选择按钮点击的时候,点击加、减号才可以计算到总金额
+        var $shop_checkBox = $('#' + id).parent().parent().prev().find('.shop_checkbox');    // 商铺全选按钮
+        var $good_checkBox = $('#' + id + ' input[class=checkBoxItem]');    // 商铺选择按钮
+
+
+        if ($good_checkBox.prop('checked') || $shop_checkBox.prop('checked')){
+            var total = formatMoney($('.total-symbol').text());
+            total = isReduce? reduceAmount(total, price) : addAmount(total, price);
+
+            $('.total-symbol').text('¥' + total);
+        }
+
         if (amount_num <= 0){   // 数量最小只能是 1
             amount_num = 1;
         }
@@ -121,67 +159,72 @@ function priceToFloat(selector) {
 
 // 添加元素
 function layoutUI(array) {
-    var id = array['shop-id'];
-    var item = '        <div id="'+ id +'">\n' +
-        '            <div class="itemHead-shop" >\n' +
-        '                <div class="shop-info">\n' +
-        '                    <input type="checkbox" name="orders[]" class="shop_checkbox">\n' +
-        '                    <img src="public/res/market.png">\n' +
-        '                    <span>店铺:&nbsp;</span>\n' +
-        '                    <span class="shop-name"></span>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '            <div class="order-content">\n' +
-        '                <div class="item-list">\n' +
-        '                    <div class="item-holder">\n' +
-        '                        <ul class="item-content">\n' +
-        '                            <li class="td-chk">\n' +
-        '                                <input class="checkBoxItem" type="checkbox">\n' +
-        '                            </li>\n' +
-        '                            <li class="td-item">\n' +
-        '                                <img src="./public/res/timg.jpeg">\n' +
-        '                                <div class="item_info">\n' +
-        '                                    <a class="item-basic-info"></a>\n' +
-        '                                </div>\n' +
-        '                            </li>\n' +
-        '                            <li class="td-info"></li>\n' +
-        '                            <li class="td-price">\n' +
-        '                                <div class="price-line" tabindex="0">\n' +
-        '                                    <em class="price-now"></em>\n' +
-        '                                </div>\n' +
-        '                            </li>\n' +
-        '                            <li class="td-amount">\n' +
-        '                                <div class="item-amount">\n' +
-        '                                    <button class="amount-minus">-</button>\n' +
-        '                                    <input type="text" class="text-amount">\n' +
-        '                                    <button class="amount-plus">+</button>\n' +
-        '                                </div>\n' +
-        '                            </li>\n' +
-        '                            <li class="td-sum">\n' +
-        '                                <div class="td-inner">\n' +
-        '                                    <em class="item-sum-number"></em>\n' +
-        '                                    <div class="weight"></div>\n' +
-        '                                </div>\n' +
-        '                            </li>\n' +
-        '                            <li class="td-op">\n' +
-        '                                <button class="delete-item">删除</button>\n' +
-        '                            </li>\n' +
-        '                        </ul>\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '        </div>';
+    for (var i = 0; i < array.length; i++){
+        var id = array[i]['shop-id'];
+        var item = '        <div id="'+ id +'">\n' +
+            '            <div class="itemHead-shop" >\n' +
+            '                <div class="shop-info">\n' +
+            '                    <input type="checkbox" name="orders[]" class="shop_checkbox">\n' +
+            '                    <img src="public/res/market.png">\n' +
+            '                    <span>店铺:&nbsp;</span>\n' +
+            '                    <span class="shop-name"></span>\n' +
+            '                </div>\n' +
+            '            </div>\n' +
+            '            <div class="order-content">\n' +
+            '                <div class="item-list">\n' +
+            '                    <div class="item-holder">\n' +
+            '                        <ul class="item-content">\n' +
+            '                            <li class="td-chk">\n' +
+            '                                <input class="checkBoxItem" type="checkbox">\n' +
+            '                            </li>\n' +
+            '                            <li class="td-item">\n' +
+            '                                <img src="./public/res/timg.jpeg">\n' +
+            '                                <div class="item_info">\n' +
+            '                                    <a class="item-basic-info"></a>\n' +
+            '                                </div>\n' +
+            '                            </li>\n' +
+            '                            <li class="td-info"></li>\n' +
+            '                            <li class="td-price">\n' +
+            '                                <div class="price-line" tabindex="0">\n' +
+            '                                    <em class="price-now"></em>\n' +
+            '                                </div>\n' +
+            '                            </li>\n' +
+            '                            <li class="td-amount">\n' +
+            '                                <div class="item-amount">\n' +
+            '                                    <button class="amount-minus">-</button>\n' +
+            '                                    <input type="text" class="text-amount">\n' +
+            '                                    <button class="amount-plus">+</button>\n' +
+            '                                </div>\n' +
+            '                            </li>\n' +
+            '                            <li class="td-sum">\n' +
+            '                                <div class="td-inner">\n' +
+            '                                    <em class="item-sum-number"></em>\n' +
+            '                                    <div class="weight"></div>\n' +
+            '                                </div>\n' +
+            '                            </li>\n' +
+            '                            <li class="td-op">\n' +
+            '                                <button class="delete-item">删除</button>\n' +
+            '                            </li>\n' +
+            '                        </ul>\n' +
+            '                    </div>\n' +
+            '                </div>\n' +
+            '            </div>\n' +
+            '        </div>';
+        $('#order-list').append(item);
+        multiInSameShop(array[i]);
 
-    $('#order-list').append(item);
+        setData(array[i])
+    }
+    dealCheckBox();
 
-    multiInSameShop(array);
+    hoverEvent();
 }
 
-// 如果同一个店铺有多个商品
+// 如果同一个店铺有多个商品,需要加进一个商铺中
 function multiInSameShop(array) {
     var $item_list = $('#' + array['shop-id'] + ' div[class=item-list]');    // 获取商品列表标签
-    for (var  i = 1; i < array['list'].length; i++){    // 从 1 开始遍历
-        var $item_holder = $('#' + array['shop-id'] + ' div[class=item-holder]');    // 获取商品框架
+    for (var j = 1; j < array['list'].length; j++){    // 从 1 开始遍历
+        var $item_holder = $($('#' + array['shop-id'] + ' div[class=item-holder]')[0]);    // 获取商品框架中第一个元素
         var $clone_holder = $item_holder.clone();   // 复制一份
         $item_list.append(separateLine());    // 多个商品之间添加一条分割线
         $item_list.append($clone_holder);   // 加进列表
@@ -194,52 +237,23 @@ function separateLine() {
     return $(line);
 }
 
-// 测试元素
-function array1() {
-    var json = {
-        "shop-id":"shop-1",
-        "shop-name":"中华美食",
-        "list":[
-            {
-                "id":"goods-1",
-                "pic": "",
-                "title": "包邮 日本ZEBRA斑马J3J2三色中性笔 多色中性笔 斑马多功能笔0.5",
-                "price": 14.2,
-                "amount": 2,
-                "weight": 0.2
-            },
-            {
-                "id":"goods-2",
-                "pic": "",
-                "title": "天猫超市 华味亨铁山楂300g/袋 山楂 卷山楂片 山楂干蜜饯零食",
-                "price": 6,
-                "amount": 10,
-                "weight": 0.6
-            }
-        ]
-    };
-    return json;
+// 获取数据
+function cartData() {
+
+    $.ajax({
+        url: 'http://localhost:9000/selectCart',
+        type: 'get',
+        success: function (data, status) {
+            var json = JSON.parse(data);
+            layoutUI(json);
+        },
+        error:function (err) {
+            alert(err);
+        }
+    });
 }
 
-function array2() {
-    var json = {
-        "shop-id":"shop-2",
-        "shop-name":"优衣库官方旗舰店",
-        "list":[
-            {
-                "id":"goods-3",
-                "pic": "",
-                "title": "男装 AIRism针织短裤 182503 优衣库UNIQLO",
-                "price": 59,
-                "amount": 1,
-                "weight": 1
-            }
-        ]
-    };
-    return json;
-}
-
-// 数量计算,减法-加法-乘法
+/*** 数量计算,减法-加法-乘法  ***/
 // 加法,去除小数点
 function addAmount(arg1, arg2) {
     var r1, r2, m, c;
@@ -309,10 +323,6 @@ function mulWeight(arg1, arg2) {
     return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
 }
 
-$(function () {
-    dealCheckBox();
-});
-
 // 多选框事件
 function dealCheckBox() {
     // 所有全选按钮事件
@@ -321,15 +331,14 @@ function dealCheckBox() {
             $("input[type='checkbox']").each(function () {
                 $(this).prop('checked', true);
                 totalMoney();
-                enableSettle();
             });
         }else {
             $("input[type='checkbox']").each(function () {
                 $(this).prop('checked', false);
                 resetTotal();
-                disableSettle();
             });
         }
+
     });
 
     // 单个商铺全选
@@ -374,14 +383,14 @@ function dealCheckBox() {
     });
 }
 
-// 如果该商铺下所有商品打钩,则该商铺全选按钮页应该打钩
+// 如果该商铺下所有商品打钩,则该商铺全选按钮也应该打钩
 function isShopSelect(good, shopBox) {
     // 计算商铺下的所有商品全选按钮有没有全部打钩
     var isAll = false;
     good.find('.checkBoxItem').each(function () {
-         if (!$(this).prop('checked') && $(this).attr('class') != 'shop_checkbox') {    // 如果全部选择框打钩,除了全选框
+         if (!this.checked) {    // 如果全部选择框打钩,除了全选框
              isAll = false;
-             return;
+             return false;
          }
          isAll = true;
      });

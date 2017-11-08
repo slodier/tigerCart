@@ -34,9 +34,25 @@ function amountHover(selector) {
 // 悬停宝贝,显示天猫和店铺
 function showOverFlow() {
     $('.switch-nav').hover(function () {
-        $(this).css('overflow', 'visible');
+        $(this).css({
+            'border': '1px solid #e6e6e6',
+            'overflow': 'visible',
+            'background':'#ffffff'
+        });
+
+        $('.switch-nav-item button').css({
+            'background':'#ffffff'
+        });
+
     },function () {
-        $(this).css('overflow', 'hidden');
+        $(this).css({
+            'border': '0',
+            'overflow':'hidden'
+        });
+
+        $('.switch-nav-item button').css({
+            'background':'#e6e6e6'
+        });
     });
 }
 
@@ -238,5 +254,5 @@ function changeColumnColor(selector, color) {
         $(this).css('background', color)
     }, function () {
         $(this).css('background', '#fff')
-
-    })}
+    })
+}
