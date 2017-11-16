@@ -1,9 +1,57 @@
 $(function () {
+
+    layoutUI();
+
     hoverColor();
     showOverFlow();
 
     showDetail();
 });
+
+// 创建顶部导航栏
+function layoutUI() {
+    var elem = '    <div class="site-nav">\n' +
+        '        <div class="site-nav-bd">\n' +
+        '            <ul class="site-nav-bd-l">\n' +
+        '                <li class="site-nav-menu">脆饼</li>\n' +
+        '                <li class="site-nav-tmsg">\n' +
+        '                    <span>消息</span>\n' +
+        '                    <span class="site-nav-tmsg-num">1</span>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-mobile">手机逛淘宝</li>\n' +
+        '            </ul>\n' +
+        '            <ul class="site-nav-bd-r">\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-home">淘宝网首页</button>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-myTaoBao">我的淘宝</button>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-cart">购物车</button>\n' +
+        '                    <span class="site-nav-cart-num">9</span>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-favor">收藏夹</button>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-catalog">商品分类</button>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-seller">卖家中心</button>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-service">联系客服</button>\n' +
+        '                </li>\n' +
+        '                <li class="site-nav-item">\n' +
+        '                    <button id="site-nav-sitemap">网站导航</button>\n' +
+        '                </li>\n' +
+        '            </ul>\n' +
+        '        </div>\n' +
+        '    </div>'
+
+    $('body').prepend(elem);
+}
 
 // id, 手机逛淘宝, 淘宝网首页, 购物车, 收藏夹, 商品分类, 卖家中心, 联系客服, 网站导航
 function hoverColor() {

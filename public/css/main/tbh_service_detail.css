@@ -1,0 +1,46 @@
+.tbh_service_detail {
+    position: absolute;
+    float: left;
+    left:190px;
+    width: 790px;
+    height: 522px;
+    border: 2px solid #FF4F22;
+    z-index: 2;
+    background-color: #009fd8;
+}
+
+.tbh_service_content {
+    width: 540px;
+    height: 100%;
+}
+
+.tbh_service_content ul li {
+    float: left;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.J_serch_content {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 520px;
+    height: 502px;
+}
+
+.theme_title {
+    font-size: 16px;
+}
+
+.theme_content {
+    height: 140px;
+    list-style: none;
+    font-size: 12px;
+}
+
+.theme_title_second {
+    margin-top: 30px;
+}
+
+.theme_title_three {
+    margin-top: 30px;
+}

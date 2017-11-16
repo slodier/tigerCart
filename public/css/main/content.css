@@ -1,0 +1,131 @@
+.tbh_nav {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #ff9000;
+}
+
+/* 正文上方内容 */
+.J_nav {
+    position: relative;
+    left: 9%;
+    width: 90%;
+    height: 100%;
+    min-width: 1250px;
+}
+
+.theme_mark {
+    float: left;
+    width: 190px;
+    height: 30px;
+    background-color: #FF4F22;
+    min-width: 190px;
+}
+
+.theme_mark span {
+    position: relative;
+    width: 190px;
+    height: 30px;
+    text-align: center;
+    top: 4px;
+    left: 35%;
+}
+
+.nav_hd {
+    float: left;
+    width: 216px;
+    height: 30px;
+    min-width: 190px;
+}
+
+.nav_hd li {
+    float: left;
+    list-style: none;
+    padding-left: 15px;
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+.nav_bd {
+    float: left;
+    height: 100%;
+    width: 349.36px;
+}
+
+.nav_bd li {
+    float: left;
+    list-style: none;
+    padding-left: 15px;
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+/** 主要内容 **/
+.main_inner {
+    position: relative;
+    left: 9%;
+    width: 82%;
+    height: 522px;
+}
+
+.tbh_service {
+     position: relative;
+     float: left;
+     width: 189px;
+     height: 522px;
+     border: 1px solid #FF4F22;
+     font-size: 14px;
+}
+
+.service-bd {
+    padding-top: 5px;
+    padding-bottom: 3px;
+    list-style: none;
+}
+
+.service-bd li {
+    overflow: hidden;
+    line-height: 32px;
+    height: 32px;
+    padding-left: 25px;
+    padding-right: 19px;
+    position: relative;
+    color: #666;
+    font-weight: 400;
+}
+
+.service-bd span {
+    cursor: pointer;
+}
+
+/* 轮播图 */
+.J_core {
+    float: left;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 521px;
+    width:520px;
+}
+
+.J_moudle {
+    width: 520px;
+}
+
+.J_promo {
+    position: relative;
+    width: 520px;
+    height: 280px;
+    overflow: hidden;
+}
+
+.tmall {
+    position: relative;
+    width: 520px;
+    height: 230px;
+    margin-top: 1px;
+    overflow: hidden;
+}
