@@ -1,12 +1,13 @@
 .tbh_service_detail {
     position: absolute;
+    top:0px;
     float: left;
     left:190px;
     width: 790px;
     height: 522px;
     border: 2px solid #FF4F22;
     z-index: 2;
-    background-color: #009fd8;
+    background-color: #ffffff;
 }
 
 .tbh_service_content {
@@ -18,6 +19,7 @@
     float: left;
     padding-left: 20px;
     padding-top: 10px;
+    cursor: pointer;
 }
 
 .J_serch_content {
@@ -25,6 +27,7 @@
     margin-top: 20px;
     width: 520px;
     height: 502px;
+    border-right: 1px solid #e6e6e6;
 }
 
 .theme_title {

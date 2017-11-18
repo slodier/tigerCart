@@ -64,11 +64,18 @@
 }
 
 /** 主要内容 **/
+.main {
+    float: left;
+    width: 900px;
+    height: 100%;
+}
+
 .main_inner {
     position: relative;
     left: 9%;
     width: 82%;
     height: 522px;
+    background-color: #e6e6e6;
 }
 
 .tbh_service {
@@ -78,6 +85,7 @@
      height: 522px;
      border: 1px solid #FF4F22;
      font-size: 14px;
+    background-color: #ffffff;
 }
 
 .service-bd {
@@ -103,16 +111,19 @@
 
 /* 轮播图 */
 .J_core {
+    position: absolute;
     float: left;
     position: relative;
     margin-left: 10px;
     margin-top: 10px;
     height: 521px;
     width:520px;
+    z-index: 1;
 }
 
 .J_moudle {
     width: 520px;
+    background: #FFFFFF;
 }
 
 .J_promo {
@@ -122,10 +133,102 @@
     overflow: hidden;
 }
 
+/* 第二个轮播图 */
 .tmall {
     position: relative;
     width: 520px;
     height: 230px;
     margin-top: 1px;
     overflow: hidden;
+}
+
+.tmall_hd {
+    font-size: 14px;
+    padding-top: 11px;
+    border-bottom:3px solid #ff1648;
+    position: relative;
+    background-color: #f1f1f1;
+}
+
+.inner {
+    height: 18px;
+    line-height: 18px;
+    position: relative;
+}
+
+.inner img {
+    width: 136px;
+    position: absolute;
+    height: 19px;
+    background-size: 122px 22px;
+}
+
+.inner > span {
+    font-size: 12px;
+    color: #666;
+    position: relative;
+    margin-left: 136px;
+}
+
+.inner > strong {
+    position: absolute;
+    right:0;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.inner > strong > i {
+    font-style: normal;
+    color: #ff1648;
+}
+
+.tmall_content {
+    width: 520px;
+    height: 201px;
+    overflow: hidden;
+}
+
+/* 浮动提醒当前第几页 */
+.tmall_floater {
+    position: relative;
+    bottom: -3px;
+    width: 86.6px;
+    height: 3px;
+    background: #000000;
+}
+
+/* 轮播图右边的竖条 */
+.sub_column {
+    float: right;
+    width: 160px;
+    height: 512px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.column_first {
+    overflow: hidden;
+    height: 280px;
+    background-color: #FFF;
+}
+
+.column_second {
+    height: 230px;
+    margin-top: 1px;
+}
+
+.column_second > span {
+    font-size: 12px;
+    font-weight: 400;
+    background: #e6e6e6;
+    color: #a1a1a1;
+    margin-top: 6px;
+    line-height: 30px;
+}
+
+.column_second > img {
+    width: 160px;
+    height: 200px;
+    display: inline-block;
 }

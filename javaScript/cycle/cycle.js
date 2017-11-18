@@ -51,3 +51,32 @@ function cycle(imgLength) {
         $show_btns.eq(iNow).trigger('click');      // 触发数字按钮的 click 事件
     }, 3000);
 }
+
+// 第二种轮播图
+function secondCycle() {
+    $tmall_cycle = $('.tmall_cycle');
+    var pic_width = $tmall_cycle.find('div').eq(0).width();    // 获取每组图片的宽度
+
+    var timer = null;    // 定时器
+    var iNow = 0;    // iNow 为正在展示的图片索引值,初始值为 0
+
+    // 创建定时器
+    timer = setInterval(function () {
+        iNow++;
+        if (iNow > 6 - 1){     // 到达最后一张图片时,回到第一张
+            iNow = 0;
+        }
+        $('#second_cycle_page').text(iNow + 1);
+        $tmall_cycle.animate({
+            'left':-pic_width *iNow    // 让 ul 左移 N 个图片的宽度
+        });
+        floatBlack(iNow);
+    }, 4000);
+}
+
+// 浮动黑线
+function floatBlack(index) {
+    $('.tmall_floater').animate({
+        'left':index *86.6
+    });
+}

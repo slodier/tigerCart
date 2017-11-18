@@ -3,28 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="public/css/cycle.css">
+    <link rel="stylesheet" href="public/css/cycle/first_cycle.css">
+    <link rel="stylesheet" href="public/css/cycle/second_cycle.css">
     <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 
     <script>
 
         $(function () {
-            layoutUI(array(), 'body');
-        })
+           secondCycle();
+        });
 
-        // 测试数据
-        function array() {
-            return [
-                './public/res/liqin-1.jpg',
-                './public/res/liqin-2.jpeg',
-                './public/res/xxx-5.jpg',
-                './public/res/xxx-4.jpg',
-                './public/res/lyx.jpg'
-            ];
+        function secondCycle() {
+            $tmall_cycle = $('.tmall_cycle');
+            var pic_width = $tmall_cycle.find('div').eq(0).width();    // 获取每组图片的宽度
+
+            var timer = null;    // 定时器
+            var iNow = 0;    // iNow 为正在展示的图片索引值,初始值为 0
+
+            // 创建定时器
+            timer = setInterval(function () {
+                iNow++;
+                if (iNow > 6 - 1){     // 到达最后一张图片时,回到第一张
+                    iNow = 0;
+                }
+                $tmall_cycle.animate({
+                    'left':-pic_width *iNow    // 让 ul 左移 N 个图片的宽度
+                });
+            }, 3000);
         }
+
     </script>
+
+
 </head>
+    <div class="test">
+        <div class="tmall_cycle">
+            <div class="tmall_first tmall_cycle_item">
+                <div class="tmall_1_1">
+                    <img src="./public/res/cycle/second/cycle_1_1.png" alt="">
+                </div>
+                <div class="tmall_1_2">
+                    <div class="tmall_1_2_1">
+                        <img src="./public/res/cycle/second/cycle_1_2_1.jpg">
+                    </div>
+                    <div class="tmall_1_2_2">
+                        <img src="./public/res/cycle/second/cycle_1_2_2.jpg">
+                    </div>
+                    <div class="tmall_1_2_3">
+                        <img src="./public/res/cycle/second/cycle_1_2_3.jpg">
+                    </div>
+                    <div class="tmall_1_2_4">
+                        <img src="./public/res/cycle/second/cycle_1_2_4.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="tmall_second tmall_cycle_item">
+                <div class="tmall_2_1">
+                    <img src="./public/res/cycle/second/cycle_2_1.png" alt="">
+                </div>
+                <div class="tmall_2_2">
+                    <img src="./public/res/cycle/second/cycle_2_2.jpg" alt="">
+                </div>
+            </div>
+            <div class="tmall_three tmall_cycle_item">
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_3_1.jpg">
+                    <div class="tmall_segment"></div>
+                </div>
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_3_2.jpg">
+                    <div class="tmall_segment"></div>
+                </div>
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_3_3.jpg">
+                    <div class="tmall_segment"></div>
+                </div>
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_3_4.jpg">
+                </div>
+            </div>
+            <div class="tmall_four tmall_cycle_item">
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_4_1.jpg">
+                    <div class="tmall_segment"></div>
+                </div>
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_4_2.jpg">
+                    <div class="tmall_segment"></div>
+                </div>
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_4_3.jpg">
+                    <div class="tmall_segment"></div>
+                </div>
+                <div class="tmall_three_item">
+                    <img src="./public/res/cycle/second/cycle_4_4.jpg">
+                </div>
+            </div>
+            <div class="tmall_five tmall_cycle_item">
+                <div class="tmall_5_1">
+                    <img src="./public/res/cycle/second/cycle_5_1.jpg" alt="">
+                </div>
+                <div class="tmall_5_1">
+                    <img src="./public/res/cycle/second/cycle_5_2.jpg" alt="">
+                </div>
+                <div class="tmall_5_1">
+                    <img src="./public/res/cycle/second/cycle_5_3.jpg" alt="">
+                </div>
+                <div class="tmall_5_2">
+                    <img src="./public/res/cycle/second/cycle_5_4.jpg" alt="">
+                </div>
+                <div class="tmall_5_1">
+                    <img src="./public/res/cycle/second/cycle_5_5.jpg" alt="">
+                </div>
+                <div class="tmall_5_1">
+                    <img src="./public/res/cycle/second/cycle_5_6.jpg" alt="">
+                </div>
+                <div class="tmall_5_1">
+                    <img src="./public/res/cycle/second/cycle_5_7.jpg" alt="">
+                </div>
+                <div class="tmall_5_2">
+                    <img src="./public/res/cycle/second/cycle_5_8.png" alt="">
+                </div>
+                <div class="tmall_5_3">
+                    <img src="./public/res/cycle/second/cycle_5_9.jpg" alt="">
+                </div>
+                <div class="tmall_5_3">
+                    <img src="./public/res/cycle/second/cycle_5_10.png" alt="">
+                </div>
+                <div class="tmall_5_3">
+                    <img src="./public/res/cycle/second/cycle_5_11.jpg" alt="">
+                </div>
+                <div>
+                    <img src="./public/res/cycle/second/cycle_5_12.jpg" alt="">
+                </div>
+            </div>
+            <div class="tmall_six tmall_cycle_item tmall_second">
+                <div class="tmall_2_1">
+                    <img src="./public/res/cycle/second/cycle_6_1.jpg" alt="">
+                </div>
+                <div class="tmall_2_2">
+                    <img src="./public/res/cycle/second/cycle_6_2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 <body>
-<script src="./javaScript/cycle/cycle.js"></script>
+<!--<script src="./javaScript/cycle/cycle.js"></script>-->
 </body>
 </html>
