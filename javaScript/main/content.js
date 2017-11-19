@@ -29,6 +29,14 @@ $(function () {
         $(this).css('text-decoration', 'none');
     });
 
+
+    headline();
+
+    noticeClick();
+
+    conveHover();
+
+    appsHover();
 });
 
 // 轮播图
@@ -41,4 +49,50 @@ function picCycle() {
         './public/res/cycle/first/main-cycle-5.jpg'
     ];
     ccCycle(imgArr, '.J_promo');
+}
+
+// 上下滚动,淘宝头条
+function headline() {
+
+    var index = 0;
+
+    // 创建定时器
+    var timer = null;
+    timer = setInterval(function () {
+        index++;
+        if (index > 2){
+            index = 0;
+        }
+        // 向上移动动画
+        $('.headline_bd').find('div').eq(0).animate({
+            'top':73 *index
+        });
+
+    }, 5000);
+}
+
+// 公告、规则、论坛、安全、公益 点击事件
+function noticeClick() {
+    $('.notice_hd li').click(function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        $(this).removeClass('J_enter');
+    })
+}
+
+// 充话费等等 鼠标悬停
+function conveHover() {
+    $('.conve_mod').hover(function () {
+       $(this).find('p').css('color', 'red');
+    }, function () {
+        $(this).find('p').css('color', '#333');
+    });
+}
+
+// 阿里 APP 鼠标悬停事件
+function appsHover() {
+    $('.apps_nav li ').hover(function () {
+        $(this).find('div').css('display', 'block');
+    }, function () {
+        $(this).find('div').css('display', 'none');
+    });
 }
