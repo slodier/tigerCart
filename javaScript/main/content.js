@@ -39,6 +39,7 @@ $(function () {
     appsHover();
 });
 
+
 // 轮播图
 function picCycle() {
     var imgArr = [
@@ -46,8 +47,18 @@ function picCycle() {
         './public/res/cycle/first/main-cycle-2.jpg',
         './public/res/cycle/first/main-cycle-3.jpg',
         './public/res/cycle/first/main-cycle-4.png',
-        './public/res/cycle/first/main-cycle-5.jpg'
+        './public/res/cycle/first/main-cycle-5.jpg',
+        './public/res/cycle/first/main-cycle-1.jpg'
     ];
+
+    // var imgArr = [
+    //     'http://ovn16zwm8.bkt.clouddn.com/main-cycle-1.jpg',
+    //     'http://ovn16zwm8.bkt.clouddn.com/main-cycle-2.jpg',
+    //     'http://ovn16zwm8.bkt.clouddn.com/main-cycle-3.jpg',
+    //     'http://ovn16zwm8.bkt.clouddn.com/main-cycle-4.png',
+    //     'http://ovn16zwm8.bkt.clouddn.com/main-cycle-5.jpg'
+    // ];
+
     ccCycle(imgArr, '.J_promo');
 }
 
