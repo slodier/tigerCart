@@ -333,6 +333,7 @@ a {
     padding-right: inherit;
     text-align: center;
     background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,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");
     background-color: #FFFFFF;
 }
 
@@ -559,6 +560,125 @@ a {
     display: list-item;
 }
 
+/* 充话费、旅行、车险、游戏悬停显示框 */
+.cover_detail {
+    position: relative;
+    top:10px;
+    left: -1px;
+    width: 288px;
+    height: 155px;
+    border:1px solid #ff5000;
+    z-index: 11;
+    background-color: #FFFFFF;
+}
+
+.cover_white {
+    position: relative;
+    top:-1px;
+    width: 70px;
+    height: 3px;
+    background: #FFFFFF;
+}
+
+.conver_content {
+    padding: 0 15px;
+    width: 278px;
+    height: 155px;
+    overflow: hidden;
+}
+
+.cover_hd {
+    height: 26px;
+    line-height: 26px;
+    color: #f4f4f4;
+}
+
+.cover_hd a {
+    padding: 3px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 12px;
+    float: left;
+}
+
+.cover_hd a:hover{
+    color: #ff5000;
+}
+
+.cover_body {
+    height: 117px;
+    width: 270px;
+    padding-top: 4px;
+}
+
+/* 内容 ul */
+.cover_body_list {
+    position: absolute;
+    height: 121px;
+    width: 999999px;
+    list-style: none;
+}
+
+.cover_body_item {
+    position: relative;
+    height: 100%;
+    width: 270px;
+    float: left;
+}
+
+.cover_close {
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 15px;
+    height: 15px;
+    color: #666;
+    cursor: pointer;
+}
+
+.cover_close a:hover {
+    background-color: #f4f4f4;
+}
+
+/* 充话费 */
+.cover_phone {
+    height: 25px;
+}
+
+.cover_phone_text {
+    width: 60%;
+    height: 100%;
+    outline: none;
+}
+
+.cover_phone_text:hover {
+    border-color: #666;
+}
+
+.cover_phone_money {
+    height: 25px;
+    border:1px solid #CCCCCC;
+    width: 61%;
+    cursor: pointer;
+}
+
+.cover_phone_money p {
+    float: left;
+    margin-left: 4px;
+    width: 30%;
+}
+
+.cover_phone_money p:last-child{
+    float: right;
+    width: 20px;
+}
+
+.cover_recharge {
+    position: absolute;
+    bottom: 10px;
+}
+
+/* 应用图标 */
 .conve_item_icon {
     display: inline-block;
     width: 24px;

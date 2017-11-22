@@ -99,12 +99,14 @@ function secondCycle() {
 
                 if (iNow == 6){
                     $('#second_cycle_page').text(1);    // 如果滚动到最后的第一张图片,修改页码和浮动黑条
-                    floatBlack(0);
+                    //floatBlack(0);
+                    $('.tmall_floater').css('left', '0px');
+
                 }else {
                     $('#second_cycle_page').text(iNow + 1);
                 }
             }
-        }, 1000);
+        }, 3000);
     }
 }
 

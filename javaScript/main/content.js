@@ -90,13 +90,82 @@ function noticeClick() {
     })
 }
 
-// 充话费等等 鼠标悬停
+// 充话费等等 鼠标悬停,改变字体颜色
 function conveHover() {
     $('.conve_mod').hover(function () {
-       $(this).find('p').css('color', 'red');
+        $(this).find('a').find('p').css('color', 'red');
+
+       var li_class = $(this).attr('class');
+       var current = li_class.split(" ")[1];
+       if (current == 'conve_item_1'){
+
+       }
+
+       switch (current){
+           case "conve_item_1" :
+               coverDetail($(this));
+               break;
+           case "conve_item_2" :
+               break;
+           case "conve_item_3" :
+               break;
+           case "conve_item_4" :
+               break;
+       }
+
+
     }, function () {
         $(this).find('p').css('color', '#333');
     });
+}
+
+// 充话费、旅行、车险、游戏鼠标悬停显示相应内容
+function coverDetail(selector) {
+
+    if ($('.cover_detail').length > 0) return;
+
+    var div = "<div class='cover_detail'>" +
+                  "<div class='cover_white'></div>" +
+                  "<div class='conver_content'>" +
+                        "<div class='cover_hd'>" +
+                             "<a href='#'>充话费</a>" +
+                             "<a href='#'>充流量</a>" +
+                             "<a href='#'>充固话</a>" +
+                             "<a href='#'>充宽带</a>" +
+                        "</div>" +
+                        "<div class='cover_body'>" +
+                            "<ul class='cover_body_list'>" +
+                                 "<li class='cover_body_item'>" +
+                                    "<div class='cover_phone'>" +
+                                        "<input type='text' placeholder='请输入手机号码' class='cover_phone_text'>" +
+                                        "<div class='cover_phone_money'>" +
+                                            "<p>50元</p>" +
+                                            "<p>↓</p>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='cover_recharge'>" +
+                                        "<button>立即充值</button>" +
+                                    "</div>" +
+                                 "</li>" +
+                                 "<li class='cover_body_item'></li>" +
+                                 "<li class='cover_body_item'></li>" +
+                                 "<li class='cover_body_item'></li>" +
+                            "</ul>" +
+                        "</div>" +
+                  "</div>" +
+                  "<div class='cover_close'><a href='#'>x</a></div>" +
+              "</div>"
+    selector.append(div);
+    selector.css('border', '1px solid #ff5000');
+    selector.css('border-bottom', 'none');
+}
+
+// 充话费按钮点击事件
+// 充话费,话费金额选择 ul
+function rechargeClick() {
+   $('.cover_phone_money').click(function () {
+        var div = "<div ></div>"
+   });
 }
 
 // 阿里 APP 鼠标悬停事件
